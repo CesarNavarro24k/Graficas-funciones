@@ -19,9 +19,19 @@ plt.grid(True)
 plt.axhline(0, color='black', linewidth=0.5)
 plt.axvline(0, color='black', linewidth=0.5)
 
-# Guardar como PDF en la carpeta
-ruta_guardado = os.path.join('figuras', 'grafica_x_cuadrado.pdf')
-plt.savefig(ruta_guardado, format='pdf', bbox_inches='tight')
+# Pedir nombre al usuario
+nombre = input("¿Qué nombre quieres darle al archivo de la gráfica? (sin extensión): ")
+
+# Asegurar que el nombre tenga extensión .pdf
+if not nombre.endswith('.pdf'):
+    nombre += '.pdf'
+
+# Guardar con el nombre especificado
+ruta_completa = os.path.join('figuras', nombre)
+plt.savefig(ruta_completa, format='pdf', bbox_inches='tight')
+
+# Mostrar confirmación
+print(f"Gráfica guardada como: {ruta_completa}")
 
 # Mostrar la gráfica
 plt.show()
